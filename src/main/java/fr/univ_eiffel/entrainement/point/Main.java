@@ -1,6 +1,7 @@
 
 package fr.univ_eiffel.entrainement.point;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -20,7 +21,8 @@ public class Main {
         // exercice10();
         // exercice11();
         // exercice12();
-        exercice13();
+        //exercice13();
+        exo();
     }
 
     // EXERCICE 1 : Constructeur, getters, toString
@@ -220,6 +222,20 @@ public class Main {
         for(Point p : points) {
             System.out.println(p);
         }
+
+
+
+    }
+
+    public  static void exo (){
+        ArrayList<Point> liste = new ArrayList<>();
+        liste.add(new Point(3,5));
+        System.out.println(liste);
+        liste.add(new Point(8,3));
+        liste.add(new Point(1,5));
+        liste.add(new Point(3,1));
+        System.out.println(liste);
+
 
 
 

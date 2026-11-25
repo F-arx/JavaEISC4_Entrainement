@@ -83,6 +83,19 @@ public class Main {
             }
         }
 
+        System.out.println(contientDoublon(noms));
+    }
+
+    public static boolean contientDoublon(ArrayList<String> noms) {
+        HashSet<String> dejaVu = new HashSet<>();
+
+        for (String name : noms) {
+            if (!dejaVu.add(name)) {
+                System.out.println("Doublon détecté : " + name);
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void testNotes(){
