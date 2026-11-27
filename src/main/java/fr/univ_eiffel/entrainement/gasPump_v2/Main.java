@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args){
         Gaspump_V2 pump_dans_la_france_a_macron = new Gaspump_V2(100, 2);
+        Gaspump_V2 pump_dans_la_france_a_melanchon = new Gaspump_V2(1000, 1);
 
         System.out.println(pump_dans_la_france_a_macron);
 
@@ -42,6 +43,29 @@ public class Main {
         pump_dans_la_france_a_macron.display_all();
         pump_dans_la_france_a_macron.setPrice(100);
         pump_dans_la_france_a_macron.display_all();
+        System.out.println(pump_dans_la_france_a_macron.getTotalBillsValue());
+
+
+        System.out.println(pump_dans_la_france_a_macron == pump_dans_la_france_a_melanchon);
+        System.out.println(pump_dans_la_france_a_macron.equals(pump_dans_la_france_a_melanchon));
+        System.out.println(pump_dans_la_france_a_macron.hashCode() == pump_dans_la_france_a_melanchon.hashCode());
+
+        pump_dans_la_france_a_macron.fill(20);
+
+        System.out.println(pump_dans_la_france_a_macron.equals(pump_dans_la_france_a_melanchon));
+
+        Gaspump_V2 p1 = new Gaspump_V2(100, 2);
+        Gaspump_V2 p2 = new Gaspump_V2(100, 2);
+
+        System.out.println("    P1 and P2");
+        System.out.println(p1 == p2);
+        System.out.println(p1.equals(p2));
+        System.out.println(p1.hashCode() == p2.hashCode());
+
+        p1.fill(20);
+
+
+        System.out.println(p1.equals(p2));
 
 
         //testHashMaps();

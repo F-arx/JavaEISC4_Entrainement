@@ -1,6 +1,8 @@
 package fr.univ_eiffel.entrainement.gasPump_v2;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class Gaspump_V2 {
@@ -50,11 +52,11 @@ public class Gaspump_V2 {
         return totalSale;
     }
 
-    public HashMap<Integer, Integer> getBills() {
+    private HashMap<Integer, Integer> getBills() {
         return bills;
     }
 
-    public void setPrice(double price) {
+    void setPrice(double price) {
         if(price <= 0){
             throw new IllegalArgumentException("invalid price");
         }
@@ -135,5 +137,24 @@ public class Gaspump_V2 {
         return quantity_to_sell;
     }
 
+    public double getTotalBillsValue(){
+        double value = 0;
+        for(Map.Entry<Integer, Integer> entry : bills.entrySet())
+        {
+            value += entry.getKey() * entry.getValue();
+        }
+        return value;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Gaspump_V2 gaspumpV2 = (Gaspump_V2) o;
+        return Double.compare(getLimit(), gaspumpV2.getLimit()) == 0 && Double.compare(getPrice(), gaspumpV2.getPrice()) == 0 && Double.compare(getAvalaible(), gaspumpV2.getAvalaible()) == 0 && Double.compare(getTotalSale(), gaspumpV2.getTotalSale()) == 0 && Objects.equals(getBills(), gaspumpV2.getBills());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getLimit(), getPrice(), getAvalaible(), getTotalSale(), getBills());
+    }
 }
